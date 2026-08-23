@@ -1,0 +1,42 @@
+# FirstBank Nigeria Customer Segmentation Analytics Project
+# BAN6800 - Module 3 Environment File
+# Install with: pip install -r requirements.txt --break-system-packages
+
+# Data handling
+pandas==2.2.2
+numpy==1.26.4
+
+# Orchestration DAG
+prefect==3.8.3
+
+# Data validation
+great_expectations==1.21.0
+
+# Bias detection
+fairlearn==0.14.0
+
+# Anonymization
+Faker==40.36.0
+
+# Testing
+pytest==9.1.1
+
+# Modeling (carried forward for Module 4)
+scikit-learn==1.5.0
+scipy==1.13.1
+mlflow==2.14.1
+shap==0.45.1
+
+# Cloud SDK
+boto3==1.34.131
+
+# Dashboard / API
+streamlit==1.36.0
+fastapi==0.111.0
+uvicorn==0.30.1
+
+# Notebook environment
+jupyterlab==4.2.2
+
+# Version control for data
+dvc==3.51.2
