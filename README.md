@@ -12,7 +12,7 @@ vision through a monitored, containerized, deployable system.
 |---|---|
 | **Live Dashboard** | https://firstbank-customer-segmentation-5fqdeelrnmuhxvynun53yg.streamlit.app/ — deployed on Streamlit Community Cloud |
 | **GitHub Repository** | https://github.com/OfiIreg/FirstBank-customer-segmentation |
-| **API Endpoint** | `src/api/main.py` — tested locally (see `src/api/README.md` in the FastAPI folder); not yet deployed to a public host. Recommended: Render.com or Railway free tier, pointed at `Dockerfile.api` |
+| **API Endpoint** | `src/api/main.py` — tested locally- https://firstbank-cross-sell-api.onrender.com
 | **Monitoring** | `monitoring/run_drift_check.py` — tested locally against real train/test data; scheduled weekly via `.github/workflows/ci-cd.yml`. No public monitoring dashboard is hosted; the script writes `monitoring_result.json`, suitable for a Grafana/Prometheus frontend if deployed |
 
 ## Project Continuity
