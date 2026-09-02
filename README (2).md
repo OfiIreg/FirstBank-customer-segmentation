@@ -14,7 +14,7 @@ Module 4 cross-sell propensity model.
 | `fairness_results.json` | Module 4 fairness audit + mitigation results |
 | `model_results.json` | Module 4 model performance metrics |
 | `shap_feature_importance.csv` | Module 4 SHAP global feature ranking |
-| `api_demo.py` | Standalone script demonstrating the Module 4 FastAPI `/predict` endpoint |
+| `api_demo.py` | Standalone script demonstrating the Module 4 FastAPI `https://firstbank-cross-sell-api.onrender.com)` endpoint |
 | `requirements.txt` | Minimal dependencies for the dashboard only |
 
 This folder was verified locally: `streamlit run app.py` starts cleanly
