@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-09-02T20:11:36.372201+00:00",
+  "data_drift": {
+    "status": "OK",
+    "columns_checked": 17,
+    "columns_drifted": 0,
+    "share_drifted": 0.0
+  },
+  "fairness_drift": {
+    "status": "ALERT",
+    "alerts": [
+      "gender: disparate impact ratio 0.79 has drifted below 0.8",
+      "age_band: disparate impact ratio 0.75 has drifted below 0.8"
+    ]
+  }
+}
