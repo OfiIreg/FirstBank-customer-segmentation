@@ -1,9 +1,9 @@
-# Dockerfile.pipeline - the Module 3 ETL pipeline container (unchanged from Module 3)
+# Dockerfile.pipeline - the Module 3 ETL pipeline container
 FROM python:3.11-slim
 WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/*
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY requirements-pipeline.txt .
+RUN pip install --no-cache-dir -r requirements-pipeline.txt
 COPY src/ ./src/
 COPY tests/ ./tests/
 RUN mkdir -p data/raw data/interim data/processed logs great_expectations
