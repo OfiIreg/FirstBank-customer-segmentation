@@ -6,7 +6,8 @@ in the MLflow Model Registry, versioned and staged.
 """
 import mlflow
 from mlflow.tracking import MlflowClient
-
+from pathlib import Path
+Path("mlruns").mkdir(parents=True, exist_ok=True)
 mlflow.set_tracking_uri("sqlite:///mlruns/mlflow.db")
 client = MlflowClient()
 
