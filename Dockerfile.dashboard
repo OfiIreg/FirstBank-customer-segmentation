@@ -1,9 +1,19 @@
 # Dockerfile.dashboard - serves the Streamlit stakeholder dashboard
+# Note: app.py and its data files sit at the repo root (matching the
+# actual Streamlit Community Cloud deployment), not in a dashboard/
+# subfolder, so this Dockerfile mirrors that same layout.
 FROM python:3.11-slim
 WORKDIR /app
-COPY dashboard/requirements.txt .
+RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/*
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-COPY dashboard/ ./
+COPY app.py .
+COPY model_bundle.joblib .
+COPY fairness_results.json .
+COPY model_results.json .
+COPY shap_feature_importance.csv .
+COPY example_predictions.csv .
+COPY sample_customers.csv .
 RUN useradd --create-home appuser && chown -R appuser:appuser /app
 USER appuser
 EXPOSE 8501
