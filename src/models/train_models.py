@@ -113,7 +113,7 @@ def run():
         }
         search = RandomizedSearchCV(
             RandomForestClassifier(random_state=SEED), param_dist,
-            n_iter=12, scoring="roc_auc", cv=cv, random_state=SEED, n_jobs=-1,
+            n_iter=12, scoring="roc_auc", cv=cv, random_state=SEED, n_jobs=-1, verbose=2,
         )
         search.fit(X_train, y_train)
         best = search.best_estimator_
@@ -138,7 +138,7 @@ def run():
         }
         search = RandomizedSearchCV(
             GradientBoostingClassifier(random_state=SEED), param_dist,
-            n_iter=12, scoring="roc_auc", cv=cv, random_state=SEED, n_jobs=-1,
+            n_iter=12, scoring="roc_auc", cv=cv, random_state=SEED, n_jobs=-1, verbose=2,
         )
         search.fit(X_train, y_train)
         best = search.best_estimator_
