@@ -1,0 +1,40 @@
+
+<html><head><style>
+body { font-family: 'Segoe UI', Arial, sans-serif; background:#F7F8FA; padding:24px; }
+h1 { color:#1F3864; font-size:20px; margin-bottom:4px;}
+.sub { color:#595959; font-size:13px; margin-bottom:18px;}
+table { border-collapse: collapse; width: 100%; background:white; box-shadow: 0 1px 3px rgba(0,0,0,0.1);}
+th { background:#1F3864; color:white; text-align:left; padding:8px 12px; font-size:13px;}
+td { padding:7px 12px; font-size:13px; border-bottom:1px solid #eee; color:#333;}
+.pass { color:#1a7f37; font-weight:600; background:#e6f4ea; padding:2px 10px; border-radius:10px; font-size:12px;}
+.fail { color:#c0392b; font-weight:600; background:#fdecea; padding:2px 10px; border-radius:10px; font-size:12px;}
+.summary { display:flex; gap:14px; margin-bottom:18px; }
+.card { background:white; border-radius:8px; padding:12px 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.card .n { font-size:22px; font-weight:700; color:#1F3864; }
+.card .l { font-size:11px; color:#595959; text-transform:uppercase; letter-spacing:.03em;}
+</style></head><body>
+<h1>Great Expectations Validation &mdash; FirstBank Customer Analytics Table</h1>
+<div class="sub">Suite: firstbank_customer_analytics_suite &nbsp;|&nbsp; Batch: customer_analytics_table.csv</div>
+<div class="summary">
+  <div class="card"><div class="n">12</div><div class="l">Expectations Run</div></div>
+  <div class="card"><div class="n" style="color:#1a7f37">12</div><div class="l">Passed</div></div>
+  <div class="card"><div class="n" style="color:#c0392b">0</div><div class="l">Failed</div></div>
+  <div class="card"><div class="n">100%</div><div class="l">Success Rate</div></div>
+</div>
+<table>
+<tr><th>Expectation</th><th>Column</th><th>Result</th></tr>
+<tr><td>expect_column_values_to_not_be_null</td><td>customer_id</td><td><span class="pass">PASS</span></td></tr>
+<tr><td>expect_column_values_to_be_unique</td><td>customer_id</td><td><span class="pass">PASS</span></td></tr>
+<tr><td>expect_column_values_to_be_between</td><td>age</td><td><span class="pass">PASS</span></td></tr>
+<tr><td>expect_column_values_to_not_be_null</td><td>age</td><td><span class="pass">PASS</span></td></tr>
+<tr><td>expect_column_values_to_be_in_set</td><td>gender</td><td><span class="pass">PASS</span></td></tr>
+<tr><td>expect_column_values_to_be_between</td><td>account_balance</td><td><span class="pass">PASS</span></td></tr>
+<tr><td>expect_column_values_to_be_between</td><td>frequency</td><td><span class="pass">PASS</span></td></tr>
+<tr><td>expect_column_values_to_be_between</td><td>monetary_total</td><td><span class="pass">PASS</span></td></tr>
+<tr><td>expect_column_values_to_not_be_null</td><td>location</td><td><span class="pass">PASS</span></td></tr>
+<tr><td>expect_table_row_count_to_be_between</td><td>(table-level)</td><td><span class="pass">PASS</span></td></tr>
+<tr><td>expect_table_column_count_to_equal</td><td>(table-level)</td><td><span class="pass">PASS</span></td></tr>
+<tr><td>expect_column_values_to_be_between</td><td>share_POS Purchase</td><td><span class="pass">PASS</span></td></tr>
+
+</table>
+</body></html>

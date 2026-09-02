@@ -1,0 +1,7 @@
+# Dockerfile.monitoring - runs the Evidently AI drift and fairness monitoring job
+FROM python:3.11-slim
+WORKDIR /app
+RUN pip install --no-cache-dir evidently==0.7.21 pandas scikit-learn fairlearn joblib
+COPY monitoring/ ./monitoring/
+COPY src/api/model_bundle.joblib ./src/api/model_bundle.joblib
+CMD ["python", "monitoring/run_drift_check.py"]

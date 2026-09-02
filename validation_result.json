@@ -1,0 +1,71 @@
+{
+  "success": true,
+  "statistics": {
+    "evaluated_expectations": 12,
+    "successful_expectations": 12,
+    "unsuccessful_expectations": 0,
+    "success_percent": 100.0
+  },
+  "results": [
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "column": "customer_id",
+      "success": true
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "column": "customer_id",
+      "success": true
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "column": "age",
+      "success": true
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "column": "age",
+      "success": true
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "column": "gender",
+      "success": true
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "column": "account_balance",
+      "success": true
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "column": "frequency",
+      "success": true
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "column": "monetary_total",
+      "success": true
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "column": "location",
+      "success": true
+    },
+    {
+      "expectation_type": "expect_table_row_count_to_be_between",
+      "column": "",
+      "success": true
+    },
+    {
+      "expectation_type": "expect_table_column_count_to_equal",
+      "column": "",
+      "success": true
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "column": "share_POS Purchase",
+      "success": true
+    }
+  ]
+}

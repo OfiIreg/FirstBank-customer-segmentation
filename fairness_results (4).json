@@ -1,0 +1,67 @@
+{
+  "gender": {
+    "by_group": {
+      "selection_rate": {
+        "Female": 0.1097770154373928,
+        "Male": 0.10084033613445378,
+        "Unspecified": 0.0
+      },
+      "accuracy": {
+        "Female": 0.7066895368782161,
+        "Male": 0.7226890756302521,
+        "Unspecified": 0.7727272727272727
+      },
+      "recall": {
+        "Female": 0.20441988950276244,
+        "Male": 0.20670391061452514,
+        "Unspecified": 0.0
+      }
+    },
+    "demographic_parity_difference": 0.1097770154373928,
+    "demographic_parity_ratio (disparate_impact_ratio)": 0.0,
+    "equalized_odds_difference": 0.20670391061452514
+  },
+  "age_band": {
+    "by_group": {
+      "selection_rate": {
+        "60+": 0.04081632653061224,
+        "Under 60": 0.10599478714161599
+      },
+      "accuracy": {
+        "60+": 0.7551020408163265,
+        "Under 60": 0.7141615986099045
+      },
+      "recall": {
+        "60+": 0.08333333333333333,
+        "Under 60": 0.20679886685552407
+      }
+    },
+    "demographic_parity_difference": 0.06517846061100374,
+    "demographic_parity_ratio (disparate_impact_ratio)": 0.38507862161257944,
+    "equalized_odds_difference": 0.12346553352219074
+  },
+  "disparate_impact_flags": [
+    "Gender: disparate impact ratio = 0.00 (below the 0.80 four-fifths rule threshold)",
+    "Age band: disparate impact ratio = 0.39 (below the 0.80 four-fifths rule threshold)"
+  ],
+  "mitigation": {
+    "age_band": {
+      "method": "Fairlearn ThresholdOptimizer (post-processing, demographic_parity constraint, group-specific decision thresholds by age_band)",
+      "disparate_impact_ratio_before": 0.38507862161257944,
+      "disparate_impact_ratio_after": 0.8277826044985037,
+      "equalized_odds_diff_before": 0.12346553352219074,
+      "equalized_odds_diff_after": 0.04741583688952111,
+      "accuracy_before": 0.7158333333333333,
+      "accuracy_after": 0.7241666666666666
+    },
+    "gender": {
+      "method": "Fairlearn ThresholdOptimizer (post-processing, demographic_parity constraint, group-specific decision thresholds by gender)",
+      "disparate_impact_ratio_before": 0.0,
+      "disparate_impact_ratio_after": 0.9659090909090909,
+      "equalized_odds_diff_before": 0.20670391061452514,
+      "equalized_odds_diff_after": 0.04640883977900556,
+      "accuracy_before": 0.7158333333333333,
+      "accuracy_after": 0.7258333333333333
+    }
+  }
+}

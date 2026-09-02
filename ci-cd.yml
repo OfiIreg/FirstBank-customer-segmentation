@@ -1,0 +1,80 @@
+name: firstbank-ci-cd
+
+on:
+  push:
+    branches: [main, Module-4, Module-5, Final-Project]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * 1"  # weekly Monday 06:00 UTC monitoring run
+
+jobs:
+  test-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run pipeline unit tests
+        run: pytest tests/ -v
+      - name: Generate synthetic raw data and run ETL DAG
+        run: |
+          python src/pipeline/generate_raw_data.py
+          python src/pipeline/pipeline_dag.py
+
+  test-model:
+    runs-on: ubuntu-latest
+    needs: test-pipeline
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Train and evaluate models (logs to MLflow)
+        run: python src/models/train_models.py
+      - name: Run fairness audit and mitigation
+        run: python src/fairness/fairness_analysis.py
+
+  monitoring-check:
+    runs-on: ubuntu-latest
+    needs: test-model
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install monitoring dependencies
+        run: pip install evidently fairlearn pandas joblib scikit-learn
+      - name: Run drift and fairness monitoring check
+        run: python monitoring/run_drift_check.py
+
+  build-and-push-images:
+    runs-on: ubuntu-latest
+    needs: [test-pipeline, test-model]
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build API image
+        run: docker build -f Dockerfile.api -t firstbank-api:${{ github.sha }} .
+      - name: Build dashboard image
+        run: docker build -f Dockerfile.dashboard -t firstbank-dashboard:${{ github.sha }} .
+      - name: Build monitoring image
+        run: docker build -f Dockerfile.monitoring -t firstbank-monitoring:${{ github.sha }} .
+      - name: Smoke-test docker compose stack
+        run: docker compose config  # validates compose file without requiring a registry push
+
+  deploy-notice:
+    runs-on: ubuntu-latest
+    needs: build-and-push-images
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Deployment reminder
+        run: |
+          echo "Images built successfully. Manual step required: push to your"
+          echo "container registry and redeploy the API/dashboard services,"
+          echo "or trigger a Streamlit Cloud / Render redeploy webhook here."

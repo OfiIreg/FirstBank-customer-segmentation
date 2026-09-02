@@ -1,0 +1,80 @@
+{
+  "gender_representation": {
+    "Female": 0.491,
+    "Male": 0.489,
+    "Unspecified": 0.02
+  },
+  "age_band_representation": {
+    "35-44": 0.3223,
+    "25-34": 0.2445,
+    "45-59": 0.239,
+    "18-24": 0.1527,
+    "60+": 0.0415
+  },
+  "location_representation": {
+    "Kano": 0.0712,
+    "Delta": 0.0692,
+    "Abuja FCT": 0.0692,
+    "Ogun": 0.0683,
+    "Cross River": 0.0672,
+    "Plateau": 0.067,
+    "Rivers": 0.0663,
+    "Imo": 0.0645,
+    "Kaduna": 0.0642,
+    "Anambra": 0.0627,
+    "Oyo": 0.0627,
+    "Edo": 0.062,
+    "Kwara": 0.0617,
+    "Enugu": 0.0612,
+    "Lagos": 0.0578,
+    "Unknown": 0.025
+  },
+  "gender_monetary_stats": {
+    "Female": {
+      "count": 2946,
+      "mean": 83234.54,
+      "median": 53543.21
+    },
+    "Male": {
+      "count": 2934,
+      "mean": 80032.3,
+      "median": 52539.11
+    },
+    "Unspecified": {
+      "count": 120,
+      "mean": 61720.79,
+      "median": 50984.08
+    }
+  },
+  "age_band_monetary_stats": {
+    "18-24": {
+      "count": 916,
+      "mean": 81405.12,
+      "median": 51794.07
+    },
+    "25-34": {
+      "count": 1467,
+      "mean": 82852.88,
+      "median": 55091.52
+    },
+    "35-44": {
+      "count": 1934,
+      "mean": 76935.78,
+      "median": 51343.28
+    },
+    "45-59": {
+      "count": 1434,
+      "mean": 86664.23,
+      "median": 53356.06
+    },
+    "60+": {
+      "count": 249,
+      "mean": 73283.84,
+      "median": 51201.81
+    }
+  },
+  "representation_flags": [
+    "Gender group 'Unspecified' is 2.0% of the dataset (below 5% threshold)",
+    "Age band '60+' is 4.2% of the dataset (below 5% threshold)"
+  ]
+}
